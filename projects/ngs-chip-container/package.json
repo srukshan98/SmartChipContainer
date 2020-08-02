@@ -1,6 +1,26 @@
 {
   "name": "ngs-chip-container",
   "version": "0.0.1",
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
+  "description": "Smart Chip Container to restrict and beautifully show extra chips as one chip with tooltip",
+  "author": {
+    "email": "sachithrukshanmail@gmail.com",
+    "name": "Sachith Rukshan",
+    "url": "https://srukshan98.github.io/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/srukshan98/SmartChipContainer"
+  },
+  "bugs": "https://github.com/srukshan98/SmartChipContainer/issues",
+  "keywords": [
+    "angular",
+    "typescript",
+    "chips",
+    "directive",
+    "angular-material"
+  ],
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^9.1.11",
     "@angular/core": "^9.1.11",

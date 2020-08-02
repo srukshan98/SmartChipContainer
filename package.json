@@ -1,6 +1,25 @@
 {
   "name": "smart-chip-container-library",
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "description": "Smart Chip Container to restrict and beautifully show extra chips as one chip with tooltip",
+  "author": {
+    "email": "sachithrukshanmail@gmail.com",
+    "name": "Sachith Rukshan",
+    "url": "https://srukshan98.github.io/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/srukshan98/SmartChipContainer"
+  },
+  "bugs": "https://github.com/srukshan98/SmartChipContainer/issues",
+  "keywords": [
+    "angular",
+    "typescript",
+    "chips",
+    "directive",
+    "angular-material"
+  ],
+  "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
