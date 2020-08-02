@@ -5,7 +5,7 @@ import { NgsChipContainerComponent } from './ngs-chip-container.component';
 import { CommonModule } from '@angular/common';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CommonModule,
     MatChipsModule,
     MatTooltipModule,
-    BrowserAnimationsModule
+    // BrowserAnimationsModule
   ],
   exports: [
     NgsChipContainerComponent,

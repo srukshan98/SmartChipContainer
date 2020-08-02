@@ -1,24 +1,61 @@
-# NgsChipContainer
+# Ngs Chip Container
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.12.
+This Library introduces an Intelligent way to hold Material Chips to make it only take the space needed.
 
-## Code scaffolding
 
-Run `ng generate component component-name --project ngs-chip-container` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngs-chip-container`.
-> Note: Don't forget to add `--project ngs-chip-container` or else it will be added to the default project in your `angular.json` file. 
+## How to use
 
-## Build
+### Install
 
-Run `ng build ngs-chip-container` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `npm install ngs-chip-container@latest` to install the latest version of Ngs Chip Container.
 
-## Publishing
+### Importing into Module with default Configuration
 
-After building your library with `ng build ngs-chip-container`, go to the dist folder `cd dist/ngs-chip-container` and run `npm publish`.
+```typescript
+@NgModule({
+  imports: [
+    NgsChipContainerModule.forRoot({
+			maxChipCount: 3 // Default Number of chips to be shown
+		})
+  ]
+})
+```
 
-## Running unit tests
+### Importing into Module without default Configuration
 
-Run `ng test ngs-chip-container` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```typescript
+@NgModule({
+  imports: [
+    NgsChipContainerModule
+  ]
+})
+```
+
+### Using In Component - Simple
+
+```html
+<mat-chip-list>
+  <lib-ngs-chip-container>
+      <mat-chip *ngsChip="Name1">{{Name1}}</mat-chip>
+      <mat-chip *ngsChip="Name2">{{Name2}}</mat-chip>
+      <mat-chip *ngsChip="Name3">{{Name3}}</mat-chip>
+      <mat-chip *ngsChip="Name4">{{Name4}}</mat-chip>
+  </lib-ngs-chip-container>
+</mat-chip-list>
+```
+
+### Using In Component - with loops
+
+```html
+<mat-chip-list>
+  <lib-ngs-chip-container>
+    <ng-container *ngFor="let name of Names">
+      <mat-chip *ngsChip="name">{{name}}</mat-chip>
+    </ng-container>
+  </lib-ngs-chip-container>
+</mat-chip-list>
+```
 
 ## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Please contact me via filing an [Issue](https://github.com/srukshan98/SmartChipContainer/issues) or directly E-mail at [sachithrukshanmail@gmail.com](mailTo:sachithrukshanmail@gmail.com).
