@@ -2,6 +2,7 @@
 
 This Library introduces an Intelligent way to hold Material Chips to make it only take the space needed.
 
+![Screenshot of Library in action](https://i.imgur.com/uZdbgNd.png)
 
 ## How to use
 
