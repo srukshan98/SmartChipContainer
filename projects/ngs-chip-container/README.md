@@ -35,12 +35,12 @@ Run `npm install ngs-chip-container@latest` to install the latest version of Ngs
 
 ```html
 <mat-chip-list>
-  <lib-ngs-chip-container>
+  <ngs-chip-container>
       <mat-chip *ngsChip="Name1">{{Name1}}</mat-chip>
       <mat-chip *ngsChip="Name2">{{Name2}}</mat-chip>
       <mat-chip *ngsChip="Name3">{{Name3}}</mat-chip>
       <mat-chip *ngsChip="Name4">{{Name4}}</mat-chip>
-  </lib-ngs-chip-container>
+  </ngs-chip-container>
 </mat-chip-list>
 ```
 
@@ -48,11 +48,11 @@ Run `npm install ngs-chip-container@latest` to install the latest version of Ngs
 
 ```html
 <mat-chip-list>
-  <lib-ngs-chip-container>
+  <ngs-chip-container>
     <ng-container *ngFor="let name of Names">
       <mat-chip *ngsChip="name">{{name}}</mat-chip>
     </ng-container>
-  </lib-ngs-chip-container>
+  </ngs-chip-container>
 </mat-chip-list>
 ```
 

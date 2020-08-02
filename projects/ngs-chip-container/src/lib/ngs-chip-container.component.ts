@@ -3,7 +3,7 @@ import { Component, ContentChildren, QueryList, AfterViewInit, Input } from '@an
 import { NgsChipDirective } from './ngs-chip.directive';
 
 @Component({
-  selector: 'lib-ngs-chip-container',
+  selector: 'ngs-chip-container',
   template: `
     <ng-container *ngFor="let chip of maxChipArray">
       <ng-container *ngTemplateOutlet="chip.templateRef"></ng-container>
