@@ -15,8 +15,8 @@ Run `npm install ngs-chip-container@latest` to install the latest version of Ngs
 @NgModule({
   imports: [
     NgsChipContainerModule.forRoot({
-			maxChipCount: 3 // Default Number of chips to be shown
-		})
+      maxChipCount: 3 // Default Number of chips to be shown
+    })
   ]
 })
 ```
