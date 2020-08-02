@@ -14,7 +14,13 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngs-chip-container": [
+        "dist/ngs-chip-container/ngs-chip-container",
+        "dist/ngs-chip-container"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
