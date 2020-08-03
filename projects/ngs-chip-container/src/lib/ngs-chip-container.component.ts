@@ -1,5 +1,5 @@
 import { NgsChipConfigurationService } from './ngs-chip-config.service';
-import { Component, ContentChildren, QueryList, AfterViewInit, Input } from '@angular/core';
+import { Component, ContentChildren, QueryList, AfterViewInit, Input, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 import { NgsChipDirective } from './ngs-chip.directive';
 
 @Component({
@@ -12,8 +12,7 @@ import { NgsChipDirective } from './ngs-chip.directive';
       <mat-chip [matTooltip]="moreChipLabel">+ {{moreChipCount}} More</mat-chip>
     </ng-container>
   `,
-  styles: [
-  ]
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NgsChipContainerComponent implements AfterViewInit {
 
@@ -27,7 +26,8 @@ export class NgsChipContainerComponent implements AfterViewInit {
   maxChipArray: NgsChipDirective[] = [];
 
   constructor(
-    private config: NgsChipConfigurationService
+    private config: NgsChipConfigurationService,
+    private cdr: ChangeDetectorRef
   ) { }
 
   ngAfterViewInit(): void {
@@ -45,6 +45,7 @@ export class NgsChipContainerComponent implements AfterViewInit {
     this.maxChipArray = this.chips?.toArray().slice(0, this.getMaxChipCount()) ?? [];
     this.moreChipLabel = (this.chips?.toArray().slice(this.getMaxChipCount())?.map((item: NgsChipDirective) => item.value)?.join(' ● ')) ?? '';
     this.moreChipCount = this.chipCount - this.getMaxChipCount();
+    this.cdr.markForCheck();
   }
 
   private getMaxChipCount(): number {
