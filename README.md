@@ -1,4 +1,10 @@
-# Ngs Chip Container
+# <div align="center"> Angular Smart Chip Container </div>
+
+![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
+[![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://GitHub.com/srukshan98)
+[![GitHub issues](https://img.shields.io/github/issues/srukshan98/SmartChipContainer)](https://github.com/srukshan98/SmartChipContainer/issues)
+[![GitHub license](https://img.shields.io/github/license/srukshan98/SmartChipContainer)](https://github.com/srukshan98/SmartChipContainer)
+ 
 
 This Library introduces an Intelligent way to hold Material Chips to make it only take the space needed.
 
@@ -36,7 +42,7 @@ Run `npm install ngs-chip-container@latest` to install the latest version of Ngs
 
 ```html
 <mat-chip-list>
-  <ngs-chip-container>
+  <ngs-chip-container [maxChipCount]="3"> // optional component specific configuration
       <mat-chip *ngsChip="Name1">{{Name1}}</mat-chip>
       <mat-chip *ngsChip="Name2">{{Name2}}</mat-chip>
       <mat-chip *ngsChip="Name3">{{Name3}}</mat-chip>
