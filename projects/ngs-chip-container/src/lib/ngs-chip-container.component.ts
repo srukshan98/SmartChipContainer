@@ -42,10 +42,11 @@ export class NgsChipContainerComponent implements AfterViewInit {
 
   updateChipCount(): void {
     this.chipCount = this.chips.length;
+    this.cdr.checkNoChanges();
     this.maxChipArray = this.chips?.toArray().slice(0, this.getMaxChipCount()) ?? [];
     this.moreChipLabel = (this.chips?.toArray().slice(this.getMaxChipCount())?.map((item: NgsChipDirective) => item.value)?.join(' ● ')) ?? '';
     this.moreChipCount = this.chipCount - this.getMaxChipCount();
-    this.cdr.markForCheck();
+    this.cdr.detectChanges();
   }
 
   private getMaxChipCount(): number {
