@@ -1,6 +1,6 @@
 {
   "name": "smart-chip-container-library",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "description": "Smart Chip Container to restrict and beautifully show extra chips as one chip with tooltip",
   "author": {
     "email": "sachithrukshanmail@gmail.com",
