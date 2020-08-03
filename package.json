@@ -26,7 +26,11 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "version:patch": "npm version patch && cd projects/ngs-chip-container && npm version patch",
+    "cleanbuild": "rm -r dist && ng build -c=production",
+    "publish": "cd dist/ngs-chip-container && npm publish",
+    "build:package": "npm run version:patch && npm run cleanbuild && npm run publish"
   },
   "private": true,
   "dependencies": {
