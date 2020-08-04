@@ -55,7 +55,8 @@ export class NgsChipContainerComponent implements AfterViewInit {
     this.chipCount = this.chips.length;
     this.cdr.checkNoChanges();
     this.maxChipArray = this.chips?.toArray().slice(0, this.getMaxChipCount()) ?? [];
-    this.moreChipLabel = (this.chips?.toArray().slice(this.getMaxChipCount())?.map((item: NgsChipDirective) => item.value)?.join(' \n ')) ?? '';
+    // tslint:disable-next-line: max-line-length
+    this.moreChipLabel = (this.chips?.toArray().slice(this.getMaxChipCount())?.map((item: NgsChipDirective) => item.value)?.join(this.addTooltipLinebreak ? ' \n ' : ' ● ')) ?? '';
     this.moreChipCount = this.chipCount - this.getMaxChipCount();
     this.cdr.detectChanges();
   }
