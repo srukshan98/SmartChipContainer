@@ -1,5 +1,5 @@
 import { NgsChipConfigurationService } from './ngs-chip-config.service';
-import { Component, ContentChildren, QueryList, AfterViewInit, Input, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ContentChildren, QueryList, AfterViewInit, Input, ChangeDetectorRef, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 import { NgsChipDirective } from './ngs-chip.directive';
 
 @Component({
@@ -9,21 +9,32 @@ import { NgsChipDirective } from './ngs-chip.directive';
       <ng-container *ngTemplateOutlet="chip.templateRef"></ng-container>
     </ng-container>
     <ng-container *ngIf="moreChipCount > 0">
-      <mat-chip [matTooltip]="moreChipLabel">+ {{moreChipCount}} More</mat-chip>
+      <mat-chip [matTooltip]="moreChipLabel" [matTooltipClass]="{'chip-container-tooltip': addTooltipLinebreak}">+ {{moreChipCount}} More</mat-chip>
     </ng-container>
   `,
+  styles: [
+    `.chip-container-tooltip {
+      white-space: pre-line !important;
+    }`
+  ],
+  encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NgsChipContainerComponent implements AfterViewInit {
 
   @Input() maxChipCount: number = null;
   @Input() maxCharCount: number = null;
+  @Input() tooltipLinebreak = false;
   @ContentChildren(NgsChipDirective) chips: QueryList<NgsChipDirective>;
   chipCount = 0;
   moreChipCount = 0;
   moreChipLabel = '';
 
   maxChipArray: NgsChipDirective[] = [];
+
+  get addTooltipLinebreak() {
+    return this.tooltipLinebreak !== false || this.config?.tooltipLinebreak;
+  }
 
   constructor(
     private config: NgsChipConfigurationService,
@@ -44,7 +55,7 @@ export class NgsChipContainerComponent implements AfterViewInit {
     this.chipCount = this.chips.length;
     this.cdr.checkNoChanges();
     this.maxChipArray = this.chips?.toArray().slice(0, this.getMaxChipCount()) ?? [];
-    this.moreChipLabel = (this.chips?.toArray().slice(this.getMaxChipCount())?.map((item: NgsChipDirective) => item.value)?.join(' ● ')) ?? '';
+    this.moreChipLabel = (this.chips?.toArray().slice(this.getMaxChipCount())?.map((item: NgsChipDirective) => item.value)?.join(' \n ')) ?? '';
     this.moreChipCount = this.chipCount - this.getMaxChipCount();
     this.cdr.detectChanges();
   }
