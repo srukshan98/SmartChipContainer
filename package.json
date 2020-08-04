@@ -29,6 +29,7 @@
     "e2e": "ng e2e",
     "version:patch": "npm version patch && cd projects/ngs-chip-container && npm version patch",
     "git:patch": "git add . && git commit -m \"Version Update\" && git pull && git push",
+    "git:commit": "git add . && git commit && git pull && git push",
     "cleanbuild": "rm -r dist && ng build -c=production",
     "publish": "cd dist/ngs-chip-container && npm publish",
     "build:package": "npm run version:patch && npm run git:patch && npm run cleanbuild && npm run publish"
