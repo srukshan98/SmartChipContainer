@@ -6,4 +6,5 @@ import { Injectable } from '@angular/core';
 export class NgsChipConfigurationService {
   public maxChipCount?: number;
   public maxCharCount?: number;
+  public tooltipLinebreak?: boolean;
 }
