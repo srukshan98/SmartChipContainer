@@ -22,7 +22,9 @@ Run `npm install ngs-chip-container@latest` to install the latest version of Ngs
 @NgModule({
   imports: [
     NgsChipContainerModule.forRoot({
-      maxChipCount: 3 // Default Number of chips to be shown
+      maxChipCount: 3, // Default Number of chips to be shown
+      tooltipLinebreak: true, // Default line break configuration for Tooltips
+      maxCharCount: 3, // Default Number of characters for chips to be shown
     })
   ]
 })
@@ -42,7 +44,7 @@ Run `npm install ngs-chip-container@latest` to install the latest version of Ngs
 
 ```html
 <mat-chip-list>
-  <ngs-chip-container [maxChipCount]="3"> // optional component specific configuration
+  <ngs-chip-container [maxChipCount]="3" tooltipLinebreak> // optional component specific configuration
       <mat-chip *ngsChip="Name1">{{Name1}}</mat-chip>
       <mat-chip *ngsChip="Name2">{{Name2}}</mat-chip>
       <mat-chip *ngsChip="Name3">{{Name3}}</mat-chip>
@@ -55,7 +57,7 @@ Run `npm install ngs-chip-container@latest` to install the latest version of Ngs
 
 ```html
 <mat-chip-list>
-  <ngs-chip-container>
+  <ngs-chip-container [maxCharCount]="50"> // optional component specific configuration
     <ng-container *ngFor="let name of Names">
       <mat-chip *ngsChip="name">{{name}}</mat-chip>
     </ng-container>
