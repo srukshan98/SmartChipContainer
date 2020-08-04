@@ -5,7 +5,6 @@ import { NgsChipContainerComponent } from './ngs-chip-container.component';
 import { CommonModule } from '@angular/common';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatTooltipModule } from '@angular/material/tooltip';
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -15,8 +14,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
   imports: [
     CommonModule,
     MatChipsModule,
-    MatTooltipModule,
-    // BrowserAnimationsModule
+    MatTooltipModule
   ],
   exports: [
     NgsChipContainerComponent,
@@ -33,9 +31,7 @@ export class NgsChipContainerModule {
       providers: [
         {
           provide: NgsChipConfigurationService,
-          useValue: config ?? {
-            maxChipCount: null
-          }
+          useValue: (config ?? {}) as NgsChipConfigurationService
         }
       ]
     };

@@ -17,11 +17,11 @@ import { NgsChipDirective } from './ngs-chip.directive';
 export class NgsChipContainerComponent implements AfterViewInit {
 
   @Input() maxChipCount: number = null;
-  // @Input() maxCharCount: number = null;
+  @Input() maxCharCount: number = null;
   @ContentChildren(NgsChipDirective) chips: QueryList<NgsChipDirective>;
-  chipCount: number = 0;
-  moreChipCount: number = 0;
-  moreChipLabel: string = '';
+  chipCount = 0;
+  moreChipCount = 0;
+  moreChipLabel = '';
 
   maxChipArray: NgsChipDirective[] = [];
 
@@ -50,7 +50,44 @@ export class NgsChipContainerComponent implements AfterViewInit {
   }
 
   private getMaxChipCount(): number {
-    return this.maxChipCount != null ? this.maxChipCount : (this.config?.maxChipCount != null ? this.config?.maxChipCount : this.chipCount);
+    if (this.maxChipCount != null) {
+      return this.maxChipCount;
+    } else if (this.maxCharCount != null) {
+      return this.getMaxChipCountByChar(this.maxCharCount);
+    } else if (this.config?.maxChipCount != null) {
+      return this.config?.maxChipCount;
+    } else if (this.config?.maxCharCount != null) {
+      return this.getMaxChipCountByChar(this.config?.maxCharCount);
+    } else {
+      return this.chipCount;
+    }
   }
 
+  getMaxChipCountByChar(maxCharCount: number): number {
+    if (maxCharCount < 8) {
+      throw new Error('Ngs-Chip-Container: Maximum of 8 Characters are Required');
+    }
+
+    let currentChipCount = -1;
+    let currentCharCount = 0;
+
+    const chipValues: string[] = this.chips?.map((item: NgsChipDirective) => item.value);
+
+    if (chipValues != null && chipValues.join().length < maxCharCount) {
+      return chipValues.length + 1;
+    }
+
+    if (chipValues != null && chipValues.length > 0) {
+      for (const [index, chip] of chipValues.entries()) {
+        if ((chip.length + currentCharCount) > (maxCharCount - 8)) {
+          break;
+        } else {
+          currentChipCount = index;
+          currentCharCount += chip.length;
+        }
+      }
+    }
+
+    return currentChipCount + 1;
+  }
 }
