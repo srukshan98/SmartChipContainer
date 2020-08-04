@@ -4,5 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class NgsChipConfigurationService {
-  public maxChipCount: number;
+  public maxChipCount?: number;
+  public maxCharCount?: number;
 }
