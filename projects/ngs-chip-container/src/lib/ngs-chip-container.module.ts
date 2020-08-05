@@ -7,33 +7,33 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
-  declarations: [
-    NgsChipContainerComponent,
-    NgsChipDirective
-  ],
-  imports: [
-    CommonModule,
-    MatChipsModule,
-    MatTooltipModule
-  ],
-  exports: [
-    NgsChipContainerComponent,
-    NgsChipDirective
-  ],
-  providers: [
-    NgsChipConfigurationService
-  ]
+	declarations: [
+		NgsChipContainerComponent,
+		NgsChipDirective
+	],
+	imports: [
+		CommonModule,
+		MatChipsModule,
+		MatTooltipModule
+	],
+	exports: [
+		NgsChipContainerComponent,
+		NgsChipDirective
+	],
+	providers: [
+		NgsChipConfigurationService
+	]
 })
 export class NgsChipContainerModule {
-  static forRoot(config?: NgsChipConfigurationService): ModuleWithProviders {
-    return {
-      ngModule: NgsChipContainerModule,
-      providers: [
-        {
-          provide: NgsChipConfigurationService,
-          useValue: (config ?? {}) as NgsChipConfigurationService
-        }
-      ]
-    };
-  }
+	static forRoot(config?: NgsChipConfigurationService): ModuleWithProviders {
+		return {
+			ngModule: NgsChipContainerModule,
+			providers: [
+				{
+					provide: NgsChipConfigurationService,
+					useValue: (config ?? {}) as NgsChipConfigurationService
+				}
+			]
+		};
+	}
 }
