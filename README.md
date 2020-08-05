@@ -25,6 +25,7 @@ Run `npm install ngs-chip-container@latest` to install the latest version of Ngs
       maxChipCount: 3, // Default Number of chips to be shown
       tooltipLinebreak: true, // Default line break configuration for Tooltips
       maxCharCount: 3, // Default Number of characters for chips to be shown
+      expandable: true // More chip will be expandable on click
     })
   ]
 })
@@ -44,7 +45,7 @@ Run `npm install ngs-chip-container@latest` to install the latest version of Ngs
 
 ```html
 <mat-chip-list>
-  <ngs-chip-container [maxChipCount]="3" tooltipLinebreak> // optional component specific configuration
+  <ngs-chip-container [maxChipCount]="3" tooltipLinebreak expandable> // optional component specific configuration
       <mat-chip *ngsChip="Name1">{{Name1}}</mat-chip>
       <mat-chip *ngsChip="Name2">{{Name2}}</mat-chip>
       <mat-chip *ngsChip="Name3">{{Name3}}</mat-chip>

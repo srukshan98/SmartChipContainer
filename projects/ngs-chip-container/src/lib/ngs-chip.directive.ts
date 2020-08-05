@@ -1,14 +1,14 @@
 import { Directive, Input, TemplateRef } from '@angular/core';
 
 @Directive({
-  selector: '[ngsChip]'
+	selector: '[ngsChip]'
 })
-export class NgsChipDirective  {
-  @Input('ngsChip') value: string;
+export class NgsChipDirective {
+	@Input('ngsChip') value: string;
 
-  constructor(
-    public templateRef: TemplateRef<any>
-    ) {
-      // this.chip = this._chip;
-    }
+	constructor(
+		public templateRef: TemplateRef<any>
+	) {
+		// this.chip = this._chip;
+	}
 }
