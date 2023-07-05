@@ -25,7 +25,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 	]
 })
 export class NgsChipContainerModule {
-	static forRoot(config?: NgsChipConfigurationService): ModuleWithProviders {
+	static forRoot(config?: NgsChipConfigurationService): ModuleWithProviders<NgsChipContainerModule> {
 		return {
 			ngModule: NgsChipContainerModule,
 			providers: [
